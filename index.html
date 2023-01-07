@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Bookshelf Apps</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Bookshelf Apps</h1>
+    </header>
+    <div class="container">
+      <div class="content-left">
+        <section class="book-input">
+          <h2>Form Buku Baru</h2>
+          <form id="form" class="form">
+            <div class="input">
+              <input id="IdBook" type="hidden" />
+            </div>
+            <div class="input">
+              <label for="bookTitle">Judul Buku :</label>
+              <input id="bookTitle" type="text" placeholder="Masukkan Judul Buku" required />
+            </div>
+            <div class="input">
+              <label for="bookAuthor">Penulis Buku :</label>
+              <input id="bookAuthor" type="text" placeholder="Masukkan Penulis Buku" required />
+            </div>
+            <div class="input">
+              <label for="bookYear">Tahun Terbit :</label>
+              <input id="bookYear" type="number" placeholder="Masukkan Tahun Terbit" required />
+            </div>
+
+            <div class="input-inline">
+              <label for="inputBookDone"><span>*Checklist jika selesai dibaca</span></label>
+              <input id="inputBookDone" type="checkbox" />
+            </div>
+            <button id="bookSubmit" type="submit">Masukkan buku ke rak</button>
+          </form>
+        </section>
+      </div>
+
+      <div class="content-right">
+        <section class="book-search">
+          <h2>Cari Buku</h2>
+          <form id="book-search">
+            <label for="searchTitleBook">Judul Buku :</label>
+            <input id="searchTitleBook" type="text" />
+            <button id="searchSubmit" type="submit"><span>Cari</span></button>
+          </form>
+        </section>
+
+        <section class="all-book">
+          <h2>Buku Belum Selesai Dibaca</h2>
+          <table class="book-list">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul Buku</th>
+                <th>Penulis Buku</th>
+                <th>Tahun Terbit</th>
+                <th>Opsi</th>
+              </tr>
+            </thead>
+            <tbody id="uncompletedBookList"></tbody>
+          </table>
+        </section>
+
+        <section class="all-book">
+          <h2>Buku Selesai Dibaca</h2>
+          <table class="book-list">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul Buku</th>
+                <th>Penulis Buku</th>
+                <th>Tahun Terbit</th>
+                <th>Opsi</th>
+              </tr>
+            </thead>
+            <tbody id="completedBookList"></tbody>
+          </table>
+        </section>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #79dae8;
+}
+
+header {
+  background-color: #2155cd;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px 40px;
+}
+
+.content-left {
+  width: 38%;
+  float: left;
+}
+
+.book-input {
+  background-color: #e8f9fd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.book-input h2 {
+  text-align: center;
+  color: #000;
+}
+
+.book-input form .input {
+  margin: 8px 0;
+}
+
+.book-input .input-inline span {
+  color: #00c897;
+}
+
+.book-input form button {
+  width: 100%;
+  background-color: #2155cd;
+  padding: 8px;
+  display: block;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.book-input form button:hover {
+  background-color: #1363df;
+  font-weight: bold;
+}
+
+.book-input form .input input {
+  width: 100%;
+  display: block;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.book-input form .input label {
+  color: #2155cd;
+  font-weight: bold;
+}
+
+.book-input form .input-inline {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+}
+
+.book-input form .input-inline span {
+  font-weight: bold;
+  font-style: italic;
+  margin-right: 5px;
+}
+
+.content-right {
+  width: 60%;
+  float: right;
+  margin-top: -5px;
+}
+
+.clear {
+  clear: both;
+}
+
+.book-search {
+  background-color: #e8f9fd;
+  margin: 5px 0;
+  padding: 12px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.book-search h2 {
+  color: #000;
+}
+
+.book-search form {
+  width: 100%;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: auto 3fr 0.5fr;
+  grid-gap: 10px;
+}
+
+.book-search form label {
+  display: flex;
+  align-items: center;
+}
+
+.book-search form input {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.book-search form button {
+  background-color: #2155cd;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.book-search form button:hover {
+  background-color: #1363df;
+  font-weight: bold;
+}
+
+.book-list {
+  width: 100%;
+  border-spacing: 0px;
+}
+
+.book-list th {
+  border: 1px solid black;
+  padding: 10px;
+  background-color: royalblue;
+  color: #fff;
+}
+
+.book-list tbody td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+  background-color: #dff6ff;
+}
+
+.all-book {
+  margin: 16px 0 0 0;
+  border: 1px solid black;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #e8f9fd;
+}
+
+.all-book h2 {
+  color: #000;
+  text-align: center;
+}
+
+.all-book button {
+  border: 0;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.all-book .trash-button {
+  background-color: #fd5d5d;
+}
+
+.all-book .trash-button:hover {
+  background-color: #ff8080;
+}
+
+.all-book .check-button {
+  background-color: #14c38e;
+}
+
+.all-book .check-button:hover {
+  background-color: #00ffab;
+}
+
+.all-book .edit-button {
+  background-color: #748da6;
+}
+
+.all-book .edit-button:hover {
+  background-color: #9cb4cc;
+}
+
+.all-book .undo-button {
+  background-color: #3bacb6;
+}
+
+.all-book .undo-button:hover {
+  background-color: #82dbd8;
+}
+
+.all-book .item {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.all-book .book-list {
+  padding: 16px;
+}
+
+.all-book .book-list .book-item h3,
+p {
+  margin: 8px 0;
+}
+
+.all-book .book-list .book-item .action button {
+  border: 0;
+  padding: 5px;
+  margin: 0 5px 0 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
