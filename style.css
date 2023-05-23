@@ -103,9 +103,10 @@ header {
 
 .book-input form .input-inline span {
   font-weight: bold;
+  align-items: center;
   font-style: italic;
-  margin-right: 5px;
   font-size: 12px;
+  padding-left: 5px;
 }
 
 .content-right {
