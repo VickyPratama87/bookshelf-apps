@@ -8,39 +8,52 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #79dae8;
+  background-color: #8d72e1;
 }
 
 header {
-  background-color: #2155cd;
-  color: #fff;
+  background-color: #4e31aa;
+  color: #ffbf00;
   padding: 12px;
   text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
 }
 
 .container {
   width: 100%;
   margin: 20px auto;
-  padding: 20px 40px;
+  padding: 70px 40px 20px;
 }
 
 .content-left {
-  width: 38%;
+  width: 33%;
   float: left;
 }
 
+/* book input */
+.title-card {
+  background-color: #4e31aa;
+  color: #ffbf00;
+  text-align: center;
+  padding: 7px;
+}
+
 .book-input {
-  background-color: #e8f9fd;
-  padding: 20px;
+  background-color: #b1afff;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
   border-radius: 10px;
+  overflow: hidden;
 }
 
-.book-input h2 {
-  text-align: center;
-  color: #000;
+.book-input .book-input-container,
+.book-search .book-search-container,
+.all-book .all-book-container {
+  padding: 20px;
 }
 
 .book-input form .input {
@@ -48,7 +61,7 @@ header {
 }
 
 .book-input .input-inline span {
-  color: #00c897;
+  color: #2b3467;
 }
 
 .book-input form button {
@@ -61,11 +74,11 @@ header {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.5s;
+  font-weight: bold;
 }
 
 .book-input form button:hover {
   background-color: #1363df;
-  font-weight: bold;
 }
 
 .book-input form .input input {
@@ -76,7 +89,8 @@ header {
   background-color: #fff;
 }
 
-.book-input form .input label {
+.book-input form .input label,
+.label-search {
   color: #2155cd;
   font-weight: bold;
 }
@@ -94,28 +108,25 @@ header {
 }
 
 .content-right {
-  width: 60%;
+  width: 65%;
   float: right;
-  margin-top: -5px;
 }
 
 .clear {
   clear: both;
 }
 
-.book-search {
-  background-color: #e8f9fd;
-  margin: 5px 0;
-  padding: 12px;
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  border: 1px solid black;
-  border-radius: 10px;
+/* book search */
+.form-search {
+  width: 100%;
+  position: relative;
 }
 
-.book-search h2 {
-  color: #000;
+.book-search {
+  background-color: #b1afff;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .book-search form {
@@ -137,6 +148,19 @@ header {
   background-color: #fff;
 }
 
+.book-search form .searchReset {
+  background-color: transparent;
+  position: absolute;
+  right: 125px;
+  top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.book-search form .searchReset:hover {
+  font-weight: bolder;
+}
+
 .book-search form button {
   background-color: #2155cd;
   color: #fff;
@@ -144,11 +168,12 @@ header {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.5s;
+  font-weight: bold;
+  padding: 3px;
 }
 
 .book-search form button:hover {
   background-color: #1363df;
-  font-weight: bold;
 }
 
 .book-list {
@@ -159,7 +184,7 @@ header {
 .book-list th {
   border: 1px solid black;
   padding: 10px;
-  background-color: royalblue;
+  background-color: rgba(78, 49, 170, 0.7);
   color: #fff;
 }
 
@@ -167,26 +192,22 @@ header {
   border: 1px solid black;
   padding: 10px;
   text-align: center;
-  background-color: #dff6ff;
+  background-color: #c0deff;
 }
 
+/* all book */
 .all-book {
-  margin: 16px 0 0 0;
+  margin: 20px 0 0 0;
   border: 1px solid black;
-  padding: 16px;
   border-radius: 10px;
-  background-color: #e8f9fd;
-}
-
-.all-book h2 {
-  color: #000;
-  text-align: center;
+  background-color: #b1afff;
+  overflow: hidden;
 }
 
 .all-book button {
   border: 0;
   border-radius: 5px;
-  padding: 10px;
+  padding: 7px;
   cursor: pointer;
   margin-right: 10px;
   color: #fff;
@@ -195,6 +216,7 @@ header {
 
 .all-book .trash-button {
   background-color: #fd5d5d;
+  transition: 0.1s;
 }
 
 .all-book .trash-button:hover {
@@ -211,6 +233,7 @@ header {
 
 .all-book .edit-button {
   background-color: #748da6;
+  transition: 0.1s;
 }
 
 .all-book .edit-button:hover {
@@ -218,7 +241,8 @@ header {
 }
 
 .all-book .undo-button {
-  background-color: #3bacb6;
+  background-color: #3f979b;
+  transition: 0.1s;
 }
 
 .all-book .undo-button:hover {

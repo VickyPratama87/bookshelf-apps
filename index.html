@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Bookshelf Apps</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Bookshelf Apps New</h1>
-    </header>
-    <div class="container">
-      <div class="content-left">
-        <section class="book-input">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Bookshelf Apps</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+  <header>
+    <h1>Bookshelf Apps</h1>
+  </header>
+  <div class="container">
+    <div class="content-left">
+
+      <!-- book input -->
+      <section class="book-input">
+        <div class="title-card">
           <h2>Form Buku Baru</h2>
+        </div>
+        <div class="book-input-container">
           <form id="form" class="form">
             <div class="input">
               <input id="IdBook" type="hidden" />
@@ -38,21 +47,37 @@
             </div>
             <button id="bookSubmit" type="submit">Masukkan buku ke rak</button>
           </form>
-        </section>
-      </div>
+        </div>
+      </section>
+    </div>
 
-      <div class="content-right">
-        <section class="book-search">
+    <div class="content-right">
+
+      <!-- book search -->
+      <section class="book-search">
+        <div class="title-card">
           <h2>Cari Buku</h2>
-          <form id="book-search">
-            <label for="searchTitleBook">Judul Buku :</label>
-            <input id="searchTitleBook" type="text" />
-            <button id="searchSubmit" type="submit"><span>Cari</span></button>
-          </form>
-        </section>
+        </div>
+        <div class="book-search-container">
+          <div class="form-search">
+            <form id="book-search">
+              <label for="searchTitleBook" class="label-search">Judul Buku :</label>
+              <input id="searchTitleBook" type="text" placeholder="Masukkan Judul Buku" />
+              <input type="button" class="searchReset" onclick="clearInputForm()" value="X" hidden />
+              <button id="searchSubmit" type="submit">
+                <span class="material-icons"> search </span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
 
-        <section class="all-book">
+      <!-- all boook uncompleted -->
+      <section class="all-book">
+        <div class="title-card">
           <h2>Buku Belum Selesai Dibaca</h2>
+        </div>
+        <div class="all-book-container">
           <table class="book-list">
             <thead>
               <tr>
@@ -65,10 +90,15 @@
             </thead>
             <tbody id="uncompletedBookList"></tbody>
           </table>
-        </section>
+        </div>
+      </section>
 
-        <section class="all-book">
+      <!-- all book completed -->
+      <section class="all-book">
+        <div class="title-card">
           <h2>Buku Selesai Dibaca</h2>
+        </div>
+        <div class="all-book-container">
           <table class="book-list">
             <thead>
               <tr>
@@ -81,10 +111,13 @@
             </thead>
             <tbody id="completedBookList"></tbody>
           </table>
-        </section>
-      </div>
-      <div class="clear"></div>
+        </div>
+      </section>
     </div>
-    <script src="script.js"></script>
-  </body>
+    <div class="clear"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>

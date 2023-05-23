@@ -29,19 +29,6 @@ function findBookIndex(bookId) {
   return -1;
 }
 
-function clearInputForm() {
-  document.getElementById("book-search").reset();
-}
-
-function checkInputForm() {
-  const valueForm = document.getElementById("searchTitleBook").value;
-
-  if (valueForm !== null) {
-    const buttonReset = document.querySelector(".searchReset");
-    buttonReset.removeAttribute("hidden");
-  }
-}
-
 function isStorageExist() {
   if (typeof Storage === undefined) {
     alert("Browser kamu tidak mendukung local storage");
@@ -71,29 +58,24 @@ function makeBookShelf(bookShelfObject, nomor) {
   const { id, title, author, year, isComplete } = bookShelfObject;
 
   let undoButton;
-  let logoUndoButton;
   let trashButton;
-  let logoTrashButton;
   let editButton;
-  let logoEditButton;
   let checkButton;
-  let logoCheckButton;
 
   if (isComplete) {
+    const imageArrow = document.createElement("img");
+    imageArrow.src = "./icon-arrow.png";
     undoButton = document.createElement("button");
-    logoUndoButton = document.createElement("img");
-    logoUndoButton.setAttribute("src", "./assets/undo_white_18dp.svg");
-    undoButton.appendChild(logoUndoButton);
+    undoButton.appendChild(imageArrow);
     undoButton.classList.add("undo-button");
     undoButton.addEventListener("click", function () {
       undoBook(id);
     });
 
+    const imageDelete = document.createElement("img");
+    imageDelete.src = "./icon-delete.png";
     trashButton = document.createElement("button");
-    logoTrashButton = document.createElement("img");
-    logoTrashButton.setAttribute("src", "./assets/delete_white_18dp.svg");
-    logoTrashButton.style.color = "white";
-    trashButton.appendChild(logoTrashButton);
+    trashButton.appendChild(imageDelete);
     trashButton.classList.add("trash-button");
     trashButton.addEventListener("click", function () {
       Swal.fire({
@@ -112,28 +94,28 @@ function makeBookShelf(bookShelfObject, nomor) {
       });
     });
 
+    const imageEdit = document.createElement("img");
+    imageEdit.src = "./icon-edit.png";
     editButton = document.createElement("button");
-    logoEditButton = document.createElement("img");
-    logoEditButton.setAttribute("src", "./assets/edit_white_18dp.svg");
-    editButton.appendChild(logoEditButton);
+    editButton.appendChild(imageEdit);
     editButton.classList.add("edit-button");
     editButton.addEventListener("click", function () {
       editBook(id);
     });
   } else {
+    const imageCheck = document.createElement("img");
+    imageCheck.src = "./icon-check.png";
     checkButton = document.createElement("button");
-    logoCheckButton = document.createElement("img");
-    logoCheckButton.setAttribute("src", "./assets/check_white_18dp.svg");
-    checkButton.appendChild(logoCheckButton);
+    checkButton.appendChild(imageCheck);
     checkButton.classList.add("check-button");
     checkButton.addEventListener("click", function () {
       addBookToCompleted(id);
     });
 
+    const imageDelete = document.createElement("img");
+    imageDelete.src = "./icon-delete.png";
     trashButton = document.createElement("button");
-    logoTrashButton = document.createElement("img");
-    logoTrashButton.setAttribute("src", "./assets/delete_white_18dp.svg");
-    trashButton.appendChild(logoTrashButton);
+    trashButton.appendChild(imageDelete);
     trashButton.classList.add("trash-button");
     trashButton.addEventListener("click", function () {
       Swal.fire({
@@ -152,10 +134,10 @@ function makeBookShelf(bookShelfObject, nomor) {
       });
     });
 
+    const imageEdit = document.createElement("img");
+    imageEdit.src = "./icon-edit.png";
     editButton = document.createElement("button");
-    logoEditButton = document.createElement("img");
-    logoEditButton.setAttribute("src", "./assets/edit_white_18dp.svg");
-    editButton.appendChild(logoEditButton);
+    editButton.appendChild(imageEdit);
     editButton.classList.add("edit-button");
     editButton.addEventListener("click", function () {
       editBook(id);
@@ -186,23 +168,20 @@ function makeBookShelf(bookShelfObject, nomor) {
   return trBody;
 }
 
-function submitBookShelf() {
+function addBookShelf() {
   const generatedID = generateId();
   const bookTitle = document.getElementById("bookTitle");
   const bookAuthor = document.getElementById("bookAuthor");
   const bookYear = document.getElementById("bookYear");
   const inputBookDone = document.getElementById("inputBookDone");
+  const bookShelfObject = generateBookShelfObject(generatedID, bookTitle.value, bookAuthor.value, bookYear.value, inputBookDone.checked);
 
   const IdBook = document.getElementById("IdBook");
-  console.log("value", IdBook.value);
   if (IdBook.value === "") {
-    // addbook
-    const bookShelfObject = generateBookShelfObject(generatedID, bookTitle.value, bookAuthor.value, bookYear.value, inputBookDone.checked);
     bookShelf.push(bookShelfObject);
   } else {
-    // editbook
     const index = findBookIndex(IdBook.value);
-    bookShelf[index].isComplete = inputBookDone.checked;
+    bookShelf[index].isComplete = inputBookDone;
     console.log(IdBook.value, index);
     bookShelf[index].title = bookTitle.value;
     bookShelf[index].author = bookAuthor.value;
@@ -263,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const submitForm = document.getElementById("form");
   submitForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    submitBookShelf();
+    addBookShelf();
   });
   if (isStorageExist()) {
     loadDataFromStorage();
@@ -280,7 +259,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
     renderSearch(searchBook);
-    checkInputForm();
   });
 });
 
